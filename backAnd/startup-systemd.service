@@ -1,0 +1,19 @@
+[Unit]
+Description=DevOps AI Backend Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/server/Bogdan/devOpsAI/backAnd
+ExecStart=/bin/bash /home/server/Bogdan/devOpsAI/backAnd/startup.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=devopsai-backend
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target 
