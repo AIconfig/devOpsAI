@@ -1,0 +1,21 @@
+[Unit]
+Description=DevOps AI Platform (Frontend and Backend)
+After=network.target
+
+[Service]
+Type=forking
+User=root
+Group=root
+WorkingDirectory=/home/server/Bogdan/devOpsAI
+ExecStart=/bin/bash /home/server/Bogdan/devOpsAI/start_full_service.sh
+PIDFile=/var/run/devopsai.pid
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=devopsai-platform
+Environment=NODE_ENV=production
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target 
