@@ -1,0 +1,19 @@
+[Unit]
+Description=DevOps AI Frontend Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/server/Bogdan/devOpsAI/fronAnd
+ExecStart=/bin/bash /home/server/Bogdan/devOpsAI/fronAnd/startup.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=devopsai-frontend
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target 
